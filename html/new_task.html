@@ -12,33 +12,40 @@
       </ons-if>
     </div>
   </ons-toolbar>
+  <ons-list-title></ons-list-title>
+  <ons-list-item modifier="underbar">
+    <div class="center">
+      <ons-input id="title" type="text" placeholder="Titre de la tâche" float></ons-input>
+    </div>
+  </ons-list-item>
+  <ons-list-item modifier="underbar">
+    <div class="center">
+      <ons-input id="desc" type="text" placeholder="Description" float></ons-input>
+    </div>
+  </ons-list-item>
+  <ons-list-item modifier="underbar">
+    <div class="center">
+      <ons-input id="cat" type="text" placeholder="Catégorie" float></ons-input>
+    </div>
+  </ons-list-item>
+  <ons-list-title>Options</ons-list-title>
+
+
+  <ons-list-item modifier="underbar">
+    <label class="center" for="inner-highlight-input">
+      Importante ?
+    </label>
+    <div class="right">
+      <ons-switch id="importante" input-id="inner-highlight-input"></ons-switch>
+    </div>
+  </ons-list-item>
   <div style = "margin-top: auto">
-    <p style = "text-align: center;">
-      <ons-input id="title" modifier="underbar" placeholder="Titre de la tâche" float></ons-input>
-    </p>
-    <p style = "text-align: center;">
-      <ons-input id="desc" modifier="underbar" placeholder="Description" float ></ons-input>
-    </p>
-    <p style = "text-align: center;">
-      <ons-input id="caté" modifier="underbar" placeholder="Catégorie" float ></ons-input>
-    </p>
-    <!-- <p style = "text-align: center;">
-      <input type="$" id="start" name="trip-start"
-         value="Date.toDateString()"
-         min="2018-01-01" max="2018-12-31">
-    </p> -->
     <p style = "text-align: center;">
       <ons-button >Créer</ons-button>
     </p>
   </div>
+
  
 
 </ons-page>
 
-<!-- <script>
-  function myFunction() {
-    var d = new Date();
-    var n = d.toDateString();
-    document.getElementById("demo").innerHTML = n;
-  }
-  </script> -->
