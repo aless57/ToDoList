@@ -21,6 +21,20 @@ myApp.controllers = {
 
       element.show && element.show(); // Fix ons-fab in Safari.
     });
-  }
+  }, 
 
+  clickCreate : function() {
+      let data = {
+        title : document.querySelector("#title").value,
+        desc: document.querySelector('#desc').value, 
+        cat : document.querySelector('#cat').value, 
+        importante : document.querySelector('#importante').checked, 
+      }
+      myApp.services.tache.create(data);
+      if(data.importante) {
+        myApp.services.tache.createImportante(data)
+      }
+      
+      
+  },
 };
