@@ -17,8 +17,6 @@ myApp.services = {
                 </ons-list-item> `
             )   
             document.querySelector("#pending-list").appendChild(task)
-            myApp.services.tabTasks.push(data);
-            myApp.services.localStorage.save();
         },
         
         createImportante : function(data) {
@@ -36,6 +34,9 @@ myApp.services = {
                 </ons-list-item> `
             )
             document.querySelector('#importantTasksPage').appendChild(task);
+        },
+
+        ajoutSave : function (data){
             myApp.services.tabTasks.push(data);
             myApp.services.localStorage.save();
         },
@@ -46,6 +47,7 @@ myApp.services = {
                 // notYetImplemented
                 if(myApp.services.tabTasks[i].importante){
                     myApp.services.tache.createImportante(myApp.services.tabTasks[i])
+                    myApp.services.tache.create(myApp.services.tabTasks[i])
                 } else {
                     myApp.services.tache.create(myApp.services.tabTasks[i])
                 }
@@ -65,24 +67,12 @@ myApp.services = {
 
          load : function() {
             let tmp = localStorage.getItem("tabTache");
-            let tab = JSON.parse(tmp);
-            myApp.services.tabTasks = tab;
-            if(tab != null) {
-                myApp.services.tache.showTache();
+            console.log(JSON.parse(tmp))
+            console.log(myApp.services.tabTasks)
+            if(JSON.parse(tmp) != null){
+                myApp.services.tabTasks = JSON.parse(tmp);
             }
-             
-            
-
-        //         let tmp = localStorage.getItem("tabTache");
-        //         let tab = JSON.parse(tmp);
-        //         console.log(JSON.parse(tmp))
-        //         console.log(myApp.services.tabTasks)
-        //         if(tab != null){
-        //             myApp.services.tabTasks = JSON.parse(tmp);
-        //         }
-        //         myApp.services.tache.showTache();
-        //  }
+            myApp.services.tache.showTache();
+         }
     }
-}
-
 }

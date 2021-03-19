@@ -32,9 +32,8 @@ myApp.controllers = {
       }
       myApp.services.tache.create(data);
       if(data.importante) {
-        myApp.services.tache.createImportante(data)
+          myApp.services.tache.createImportante(data)
       }
-      
-      
+      myApp.services.tache.ajoutSave(data);
   },
 };
