@@ -33,7 +33,9 @@ myApp.services = {
                     </div>
                 </ons-list-item> `
             )
-            document.querySelector('#importantTasksPage').appendChild(task);
+            console.log(task)
+            console.log(document.querySelector('#important-list'))
+            document.querySelector('#important-list').appendChild(task);
         },
 
         ajoutSave : function (data){
@@ -42,6 +44,7 @@ myApp.services = {
         },
 
         showTache : function(){
+            console.log(myApp.services.tabTasks.length)
             for(let i = 0; i<myApp.services.tabTasks.length; i++){
                 // créer une fonction load() pour local storage
                 // notYetImplemented
@@ -66,9 +69,8 @@ myApp.services = {
          },
 
          load : function() {
+             console.log(2)
             let tmp = localStorage.getItem("tabTache");
-            console.log(JSON.parse(tmp))
-            console.log(myApp.services.tabTasks)
             if(JSON.parse(tmp) != null){
                 myApp.services.tabTasks = JSON.parse(tmp);
             }
