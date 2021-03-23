@@ -1,11 +1,14 @@
 // App logic.
 window.myApp = {};
-
+let int = 0
 document.addEventListener('init', function(event) {
+  int++
   var page = event.target;
 
   //Charger toutes les taches du localStorage
-  myApp.services.localStorage.load();
+  if(int==6){
+    myApp.services.localStorage.load()
+  }
 
   // Each page calls its own initialization controller.
   if (myApp.controllers.hasOwnProperty(page.id)) {
@@ -19,6 +22,7 @@ document.addEventListener('init', function(event) {
     })
    }
 });
+
 
 
 
