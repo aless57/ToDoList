@@ -6,7 +6,7 @@ document.addEventListener('init', function(event) {
   var page = event.target;
 
   //Charger toutes les taches du localStorage
-  if(int==6){
+  if(int===6){
     myApp.services.localStorage.load()
   }
 
@@ -15,6 +15,15 @@ document.addEventListener('init', function(event) {
     myApp.controllers[page.id](page);
   }
 
+  // if(page.id === 'completeTasksPage' || page.id === 'pendingTasksPage' || page.id === 'importantTasksPage'){
+    document.querySelector("#delete_All").addEventListener('click', evt => {
+      console.log('test')
+      myApp.services.localStorage.length = 0
+      myApp.services.localStorage.save()
+      document.location.reload()
+      myApp.services.localStorage.load()
+    })
+  // }
 
   if(page.id == 'newTaskPage'){
     document.querySelector("#button-create").addEventListener('click', () => {
