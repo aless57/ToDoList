@@ -5,3 +5,4 @@ Problème au niveau du local storage -- Appelle 6 fois la fonction load --> solu
 DEMANGE Alessi
 SAINT-DIZIER Corentin
 S4SI2
+

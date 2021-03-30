@@ -16,13 +16,13 @@ document.addEventListener('init', function(event) {
   }
 
   // if(page.id === 'completeTasksPage' || page.id === 'pendingTasksPage' || page.id === 'importantTasksPage'){
-    document.querySelector("#delete_All").addEventListener('click', evt => {
-      console.log('test')
-      myApp.services.localStorage.length = 0
-      myApp.services.localStorage.save()
-      document.location.reload()
-      myApp.services.localStorage.load()
-    })
+  //   document.querySelector("#delete_All").addEventListener('click', evt => {
+  //     console.log('test')
+  //     myApp.services.localStorage.length = 0
+  //     myApp.services.localStorage.save()
+  //     document.location.reload()
+  //     myApp.services.localStorage.load()
+  //   })
   // }
 
   if(page.id == 'newTaskPage'){
