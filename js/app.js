@@ -8,6 +8,7 @@ document.addEventListener('init', function(event) {
   //Charger toutes les taches du localStorage
   if(int===6){
     myApp.services.localStorage.load()
+    myApp.services.localStorage.loadCategorie()
   }
 
   // Each page calls its own initialization controller.
@@ -24,12 +25,13 @@ document.addEventListener('init', function(event) {
   //     myApp.services.localStorage.load()
   //   })
   // }
-
+  myApp.controllers.loadCategorie();
   if(page.id == 'newTaskPage'){
     document.querySelector("#button-create").addEventListener('click', () => {
       myApp.controllers.clickCreate();
     })
    }
+
 });
 
 

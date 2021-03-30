@@ -25,6 +25,7 @@ myApp.services = {
                         myApp.services.localStorage.save()
                         document.location.reload()
                         myApp.services.localStorage.load()
+                        myApp.services.localStorage.loadCategorie()
                     }
                 }
             })
@@ -53,6 +54,7 @@ myApp.services = {
                         myApp.services.localStorage.save()
                         document.location.reload()
                         myApp.services.localStorage.load()
+                        myApp.services.localStorage.loadCategorie()
                     }
                 }
             })
@@ -65,7 +67,6 @@ myApp.services = {
 
         showTache: function () {
             for (let i = 0; i < myApp.services.tabTasks.length; i++) {
-                console.log(myApp.services.tabTasks[i]['title'])
                 // créer une fonction load() pour local storage
                 // notYetImplemented
                 if (myApp.services.tabTasks[i].importante) {
@@ -80,9 +81,9 @@ myApp.services = {
     },
 
     tabTasks: [],
+    tabCategorie: [],
 
     localStorage: {
-
         save: function () {
             let jsonString = JSON.stringify(myApp.services.tabTasks);
             localStorage.setItem("tabTache", jsonString);
@@ -94,6 +95,22 @@ myApp.services = {
                 myApp.services.tabTasks = JSON.parse(tmp);
             }
             myApp.services.tache.showTache();
-        }
+        },
+
+        loadCategorie: function (){
+            for(let i=0 ; i < myApp.services.tabTasks.length ; i++){
+                if (myApp.services.tabTasks[i].cat != ""){
+                    let test = false;
+                    for (let y=0 ; y < myApp.services.tabCategorie.length ; y++){
+                        if(myApp.services.tabCategorie[y] === myApp.services.tabTasks[i].cat){
+                            test = true;
+                        }
+                    }
+                    if (!test){
+                        myApp.services.tabCategorie.push(myApp.services.tabTasks[i].cat)
+                    }
+                }
+            }
+        },
     }
 }

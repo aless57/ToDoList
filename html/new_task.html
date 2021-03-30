@@ -4,13 +4,6 @@
       <ons-back-button>À faire</ons-back-button>
     </div>
     <div class="center">Nouvelle tâche</div>
-    <div class="right">
-      <ons-if platform="android">
-        <ons-toolbar-button component="button/save-task">
-          <ons-icon icon="md-save"></ons-icon>
-        </ons-toolbar-button>
-      </ons-if>
-    </div>
   </ons-toolbar>
   <ons-list-title></ons-list-title>
   <ons-list-item modifier="underbar">
@@ -23,7 +16,12 @@
       <ons-input id="desc" type="text" placeholder="Description" float></ons-input>
     </div>
   </ons-list-item>
-  <ons-list-item modifier="underbar">
+  <ons-list-item modifier="nodivider">
+    <div>Choix de la catégorie: </div>
+    <ons-select id="categories-list">
+    </ons-select>
+  </ons-list-item>
+  <ons-list-item modifier="underbar" id="newcat">
     <div class="center">
       <ons-input id="cat" type="text" placeholder="Catégorie" float></ons-input>
     </div>

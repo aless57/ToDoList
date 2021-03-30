@@ -35,5 +35,30 @@ myApp.controllers = {
           myApp.services.tache.createImportante(data)
       }
       myApp.services.tache.ajoutSave(data);
+      document.location.reload()
+      myApp.services.localStorage.load()
+      myApp.services.localStorage.loadCategorie()
   },
+
+    loadCategorie: function () {
+        let categories = ['Nouvelle Catégorie'].concat(myApp.services.tabCategorie);
+        let list = $('#categories-list');
+        categories.forEach(current => {
+            let option = $(`<option value=${current}>`);
+            option.text(current);
+
+            list.click(e => {
+                let options = list.prop("options");
+                let selectedOption = options[list.prop("selectedIndex")].value;
+                if (selectedOption === 'Nouvelle') {
+                    $('#newcat').removeClass('hidden');
+                } else {
+                    $('#newcat').addClass('hidden');
+                    $('#cat').prop("value", selectedOption);
+                }
+            });
+
+            list.find('select').append(option);
+        });
+    }
 };
