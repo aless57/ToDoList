@@ -3,6 +3,7 @@ myApp.services = {
 
     tache: {
         create: function (data) {
+            data.title = data.title.replace(" ","_");
             let task = ons.createElement(
                 `<ons-list-item tappable  category = ${data.cat}>
                     <label class = "left"> 
@@ -112,5 +113,13 @@ myApp.services = {
                 }
             }
         },
+
+        supprimerTaches: function (){
+            myApp.services.tabTasks = [];
+            myApp.services.localStorage.save()
+            document.location.reload()
+            myApp.services.localStorage.load()
+            myApp.services.localStorage.loadCategorie()
+        }
     }
 }
