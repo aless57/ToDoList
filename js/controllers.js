@@ -27,7 +27,7 @@ myApp.controllers = {
       let data = {
         title : document.querySelector("#title").value,
         desc: document.querySelector('#desc').value, 
-        cat : document.querySelector('#cat').value, 
+        cat : document.querySelector('#cat').value.replace(" ","_"),
         importante : document.querySelector('#importante').checked,
         date : document.querySelector('#date').value
       }
