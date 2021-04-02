@@ -44,13 +44,13 @@
                 <div class="left">
                     <!-- Toolbar-button with different icons depending on the platform. -->
                     <ons-toolbar-button component="button/menu">
-                        <ons-icon icon="ion-navicon, material:md-menu" size="32px, material:24px"></ons-icon>
+                        <ons-icon icon="ion-navicon, material:md-menu" size="32px, material:24px" style = "color:black"></ons-icon>
                     </ons-toolbar-button>
                 </div>
-                <div class="center">À faire</div>
+                <div class="center" style = "color : black">À faire</div>
                 <div class="right">
                     <ons-toolbar-button onclick="myApp.services.localStorage.supprimerTaches()">
-                        <ons-icon style = "color : white" icon = "ion-ios-trash-outline, material:md-delete"></ons-icon>
+                        <ons-icon style = "color : black" icon = "ion-ios-trash-outline, material:md-delete"></ons-icon>
                     </ons-toolbar-button>
                 </div>
             </ons-toolbar>
@@ -58,7 +58,7 @@
             <!-- Floating Action Button only visible for Android. -->
             <ons-if platform="android">
                 <ons-fab position="right bottom" component="button/new-task">
-                    <ons-icon icon="md-edit"></ons-icon>
+                    <ons-icon icon="md-edit" style = "color:black"></ons-icon>
                 </ons-fab>
             </ons-if>
 
