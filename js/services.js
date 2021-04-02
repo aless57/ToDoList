@@ -67,14 +67,28 @@ myApp.services = {
         },
 
         showTache: function () {
+            let today = new Date();
+            let dd = String(today.getDate()).padStart(2, '0');
+            let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            let yyyy = today.getFullYear();
+            today = mm + '/' + dd + '/' + yyyy;
+            today = Date.parse(today);
+            console.log(today)
             for (let i = 0; i < myApp.services.tabTasks.length; i++) {
-                // créer une fonction load() pour local storage
-                // notYetImplemented
-                if (myApp.services.tabTasks[i].importante) {
-                    myApp.services.tache.createImportante(myApp.services.tabTasks[i])
-                    myApp.services.tache.create(myApp.services.tabTasks[i])
-                } else {
-                    myApp.services.tache.create(myApp.services.tabTasks[i])
+                let dateTache = Date.parse(myApp.services.tabTasks[i].date)
+                if(dateTache<today){
+                    myApp.services.tabTasks.splice(i,1)
+                    myApp.services.localStorage.save();
+                    document.location.reload()
+                    myApp.services.localStorage.load()
+                    myApp.services.localStorage.loadCategorie()
+                }else{
+                    if (myApp.services.tabTasks[i].importante) {
+                        myApp.services.tache.createImportante(myApp.services.tabTasks[i])
+                        myApp.services.tache.create(myApp.services.tabTasks[i])
+                    } else {
+                        myApp.services.tache.create(myApp.services.tabTasks[i])
+                    }
                 }
             }
         }
@@ -95,6 +109,7 @@ myApp.services = {
             if (JSON.parse(tmp) != null) {
                 myApp.services.tabTasks = JSON.parse(tmp);
             }
+
             myApp.services.tache.showTache();
         },
 

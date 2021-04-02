@@ -27,7 +27,7 @@ Projet ToDoList - Conception Application Mobile IUT Nancy Charlemagne S4
 - [ ] Question S2
 - [ ] Question S3
 - [x] Question S4
-- [ ] Question S5
+- [x] Question S5
 - [ ] Question S6
-- [ ] Question S7
+- [x] Question S7
 

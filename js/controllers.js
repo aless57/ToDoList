@@ -28,7 +28,16 @@ myApp.controllers = {
         title : document.querySelector("#title").value,
         desc: document.querySelector('#desc').value, 
         cat : document.querySelector('#cat').value, 
-        importante : document.querySelector('#importante').checked, 
+        importante : document.querySelector('#importante').checked,
+        date : document.querySelector('#date').value
+      }
+      if (data.date===""){
+          var today = new Date();
+          var dd = String(today.getDate()).padStart(2, '0');
+          var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+          var yyyy = today.getFullYear();
+          today = mm + '/' + dd + '/' + yyyy;
+          data.date = today;
       }
       myApp.services.tache.create(data);
       if(data.importante) {
