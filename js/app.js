@@ -9,6 +9,7 @@ document.addEventListener('init', function(event) {
   if(int===6){
     myApp.services.localStorage.load()
     myApp.services.localStorage.loadCategorie()
+    myApp.controllers.menuLoadCat()
   }
 
   // Each page calls its own initialization controller.

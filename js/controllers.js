@@ -43,6 +43,7 @@ myApp.controllers = {
     loadCategorie: function () {
         let categories = ['Nouvelle Catégorie'].concat(myApp.services.tabCategorie);
         let list = $('#categories-list');
+        let listMenu = $('custom-category-list')
         categories.forEach(current => {
             let option = $(`<option value=${current}>`);
             option.text(current);
@@ -57,8 +58,37 @@ myApp.controllers = {
                     $('#cat').prop("value", selectedOption);
                 }
             });
-
             list.find('select').append(option);
         });
+    },
+
+    menuLoadCat: function (){
+        for(let i=0;i<myApp.services.tabCategorie.length;i++){
+            let titre = myApp.services.tabCategorie[i]
+            let catMenu = ons.createElement(
+                `<ons-list-item tappable  category = ${myApp.services.tabCategorie[i]}>
+                    ${myApp.services.tabCategorie[i]}
+                    <div class = "right">
+                  <ons-icon style = "color : grey; padding-left :4px" icon = "ion-ios-trash-outline, material:md-delete" id="deleteAllTaskCat_${titre}"> </ons-icon>
+                </div>\
+                </ons-list-item> 
+                `
+            )
+            document.querySelector("#custom-category-list").appendChild(catMenu);
+            let test = "#deleteAllTaskCat_" + titre;
+            document.querySelector(test).addEventListener('click', evt => {
+                for (let y=0; y<myApp.services.tabTasks.length; y++){
+                    if(myApp.services.tabTasks[y].cat === myApp.services.tabCategorie[i]){
+                        myApp.services.tabTasks.splice(y,1)
+                        y=y-1;
+                    }
+                }
+                myApp.services.localStorage.save()
+                myApp.services.tabCategorie.splice(i,1)
+                document.location.reload()
+                myApp.services.localStorage.load()
+                myApp.services.localStorage.loadCategorie()
+            })
+        };
     }
 };
